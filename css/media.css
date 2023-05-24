@@ -126,7 +126,7 @@
         font-size: .8em;
     }
     main table tbody td.actions-task button {
-        padding: .6em;
+        padding: 0;
 
     }
 
@@ -135,11 +135,11 @@
     }
 
     main table tbody tr td.actions-task button.btn-delete{
-        padding-left: .7em;
+        padding-left: 0;
 
     }
 
     main table tbody tr td.actions-task button.btn-delete{
-        margin-right: .2em;
+        margin-right: 0;
     }
 }

@@ -328,6 +328,8 @@ main table tbody tr td.actions-task {
 main table th.information,
 main table td.information {
     text-align: start;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 main table tbody td.actions-task button {
