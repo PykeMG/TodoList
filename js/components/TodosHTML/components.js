@@ -5,7 +5,7 @@ export default class Components {
     static createEditBtn(editEvent){
         const btn = document.createElement('button');
         btn.className = 'btn-edit';
-        btn.innerHTML = '<i class="fas fa-edit"></i>';
+        btn.innerHTML = '<i class="fas fa-pen"></i>';
         btn.onclick = () => {
             const todoToEdit = btn.parentNode.parentNode.dataset.id;
             editEvent(todoToEdit);

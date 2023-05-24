@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
 body {
-    background-color: rgb(41, 39, 39);
+    background-color: #0d0d11;
     color: #fff;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     padding: 0;
     margin: 0;
 }
@@ -9,17 +10,26 @@ body {
 /*****************************************
             NAVBAR STYLE
 *******************************************/
-
+h1,h2,h3,h4,h5,p,span{
+    margin: 0;
+}
 nav.navbar {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    background-color: rgb(65, 62, 62);
+    background-color: #0d0d11;
     text-align: center;
+    border-bottom: 1px solid #292933;
+    align-items: center;
 }
 
 nav.navbar h3  {
+    font-size: 2rem;
     justify-self: center;
     margin-left: .5em;
+}
+
+nav.navbar h3 span  {
+    color: #8d55d1;
 }
 
 nav.navbar #btn-toogle-menu {
@@ -83,32 +93,82 @@ nav.navbar .navbar-content form.filters div.radio-filters div.radio-form-group {
 }
 
 nav.navbar .navbar-content form.filters div.radio-filters div.radio-form-group input {
-    margin-top: 0;
+    cursor: pointer;
+    appearance: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 3px solid #8d55d1;
+    border-radius: 10px;
+    transition: 0.4s ease;
+    position: relative;
+}
+
+nav.navbar .navbar-content form.filters div.radio-filters div.radio-form-group input:before {
+    position: absolute;
+    content: '';
+    background-color: #101015;
+    width: 1rem;
+    border-radius: 10px;
+    height: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+nav.navbar .navbar-content form.filters div.radio-filters div.radio-form-group input:checked:before {
+    opacity: 1;
+}
+
+nav.navbar .navbar-content form.filters div.radio-filters div.radio-form-group input:checked {
+    background-color: #8d55d1;
 }
 
 nav.navbar .navbar-content form.filters input[type='text']{
     margin: 0 .5em;
 }
 
-nav.navbar .navbar-content form.filters button {
+nav.navbar .navbar-content form.filters button.search_btn {
     background: none;
     color: white;
-    padding: .5em;
+    padding: 1rem 1.5em;
+    border-radius: 10px;
     transition: ease .3s;
-    border: 1px solid white;
+    border: 3px solid #8d55d1;
     cursor: pointer;
+    background-color: #8d55d1;
 }
 
-nav.navbar .navbar-content form.filters button:hover {
-    color: rgb(41, 39, 39);
-    background-color: white;
+nav.navbar .navbar-content form.filters button.search_btn:hover {
+    background: none;
+    color: #8d55d1;
+    padding: 1rem 1.5em;
+    border-radius: 10px;
+    transition: ease .3s;
+    border: 3px solid #8d55d1;
+    cursor: pointer;
+    background-color: #0d0d11;
+}
+
+nav.navbar .navbar-content form.filters .search{
+    padding: 1rem;
+    font-size: 1em;
+    height: 1.5rem;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: #1f1f1f;
+    color: #c4c4c4;
+    margin: 1rem 0;
 }
 /*****************************************
             MAIN STYLE
 *******************************************/
 
 main {
-    padding : 1em;
+    padding : 1rem 15em;
+    margin: 0 auto;
 }
 
 main > * {
@@ -123,38 +183,57 @@ main > * {
 
 
 main form.form-add {
-    display: grid;
-    grid-template-columns: 1fr 2.5fr .5fr;
     padding: 1em;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main form.form-add .container_input{
+    width: 75%;
 }
 
 main form.form-add div.form-add-group input{
-    padding: .4em;
+    display: block;
+    padding: 1rem;
     font-size: 1em;
-    width: 70%;
+    width: 100%;
+    height: 2rem;
     outline: none;
     border: none;
-    border-radius: 5px;
-}
-
-main form.form-add div.form-add-group #todoDescription {
-    width: 75%;
-
+    border-radius: 10px;
+    background-color: #1f1f1f;
+    color: #c4c4c4;
+    margin: 1rem 0;
+    width: -webkit-fill-available
 }
 
 main form.form-add  button.btn-add {
-    margin-left: -.5em;
+    cursor: pointer;
     outline: none;
-    border: none;
-    font-size: 1em;
-    border-radius: 3px;
-    background-color: rgb(32, 52, 233);
-    color : #fff;
+    border: 3px solid #8d55d1;
+    font-size: calc(2rem - 12px);
+    border-radius: 10px;
+    background-color: #101015;
+    color: #8d55d1;
+    width: 4rem;
+    height: 4rem;
+    line-height: calc(2rem - 12px);
+    font-weight: 700;
+    transition: ease .3s;
+    position: relative;
+}
+main form.form-add  button.btn-add:before{
+    content: '+';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 main form.form-add  button.btn-add:hover {
-    background-color: rgb(59, 78, 245);
-    transition: ease .3s;
+    background-color: #8d55d1;
+    color: #101015;
 }
 
 
@@ -167,29 +246,78 @@ main form.form-add  button.btn-add:hover {
 main table{
     border-collapse: collapse;
     margin-top: 2em;
-    font-size: .9em;
+    font-size: 1em;
 }
 
 
 
-main table thead tr th {
-    border-top: 1px solid rgb(204, 204, 204);
-    padding: 15px 10px;
+main table thead tr th{
+    background-color: #282331;
+    padding: 30px;
+    font-size: 1.2rem;
+    font-weight: 400;
 }
 
-main table tbody tr:nth-child(odd) {
-    background-color: rgb(53, 53, 53);
+main table thead tr th:nth-child(1) {
+    border-top-left-radius: 15px;
+}
+
+main table thead tr th:nth-child(4) {
+    border-top-right-radius: 15px;
+}
+
+main table tbody tr {
+    background-color: #1c1c25;
 }
 
 
 main table tbody tr td {
-    border-top: 1px solid rgb(204, 204, 204);
-    padding: 15px 15px 40px 10px;
+    padding: 15px 30px 15px 30px;
 }
 
+main table tbody tr:last-child td:nth-child(1) {
+    border-bottom-left-radius: 15px;
+}
+
+main table tbody tr:last-child td:nth-child(4) {
+    border-bottom-right-radius: 15px;
+}
 
 main table tbody tr td.check-task {
     text-align: center;
+}
+
+main table tbody tr td.check-task input {
+    cursor: pointer;
+    appearance: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 3px solid #8d55d1;
+    border-radius: 10px;
+    transition: 0.4s ease;
+    position: relative;
+}
+
+main table tbody tr td.check-task input:checked{
+    background-color: #8d55d1;
+}
+
+main table tbody tr td.check-task input:before{
+    position: absolute;
+    content: '';
+    background-color: #101015;
+    width: 1rem;
+    height: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+main table tbody tr td.check-task input:checked:before{
+    opacity: 1;
 }
 
 main table tbody tr td.actions-task {
@@ -204,17 +332,25 @@ main table td.information {
 
 main table tbody td.actions-task button {
     border: none;
-    padding: 1em;
     color: #fff;
     border-radius: 5px;
     outline: none;
     margin-left: 5px;
 }
 
+main table tbody tr td.actions-task button{
+    border-radius: 10px;
+    cursor: pointer;
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
 main table tbody tr td.actions-task button.btn-edit {
     background-color: rgb(35, 129, 120);
-
+    position: relative;
+    font-weight: bold;
 }
+
 
 main table tbody tr td.actions-task button.btn-edit:hover {
     background-color: rgb(47, 168, 156);
@@ -224,10 +360,13 @@ main table tbody tr td.actions-task button.btn-edit:hover {
 
 main table tbody tr td.actions-task button.btn-delete {
     background-color: rgb(185, 45, 45);
+    color: white;
+    font-weight: bold;
+    position: relative;
 }
 
 main table tbody tr td.actions-task button.btn-delete:hover {
-    background-color: rgb(228, 49, 49);
+    background-color: #e43131;
     transition: .3s ease;
 }
 
@@ -258,23 +397,28 @@ div textarea.empty-input {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     transition: all 500ms ease;
+    backdrop-filter: blur(10px);
 }
 
 .modal .modal-container {
     width: 650px;
     height: auto;
     margin: auto;
-    background-color: rgb(44, 44, 44);
+    background-color: #0d0d11;
+    border-radius: 10px;
     color: #fff;
+    padding: 2rem;
     box-shadow: 1px 7px 25px rgba(0, 0, 0, 0.6);
     transform: translateY(-5%);
+    font-size: 1rem;
 }
 
 .modal .modal-container header {
-    background-color: rgb(14, 14, 14);
+    background-color: #0d0d11;
     display: grid;
+    border-radius: 10px;
     grid-template-columns: repeat(12, 1fr);
     padding: 10px;
     padding-right: 0;
@@ -290,12 +434,13 @@ div textarea.empty-input {
     cursor: pointer;
     background: none;
     border: none;
-    color: #fff;
+    color: #e43131;
+    font-size: 1.5rem;
+    transition: .3s ease;
 }
 
 .modal .modal-container header button.close-modal:hover {
-   color: rgb(131, 131, 131);
-   
+   color: #fff;
 }
 
 /****************************************
@@ -311,20 +456,31 @@ div textarea.empty-input {
 }
 
 .modal .modal-container .edit-container form div.form-edit-group:nth-child(3) {
-    grid-template-columns: repeat(12, 1fr);
+    display: flex;
+    align-items: center;
 }
 
 .modal .modal-container .edit-container form div.form-edit-group input#title-edit {
-    border-radius: 5px;
-    padding: .5em 5px;
+    border-radius: 10px;
+    padding: .5em 1rem;
+    background-color: #1f1f1f;
+    color: #c4c4c4;
+    height: 2rem;
+    border: none;
+    font-size: 1rem;
+    font-family: 'Ubuntu';
 }
 
 .modal .modal-container .edit-container form div.form-edit-group textarea#description-edit {
-    border-radius: 5px;
+    border-radius: 10px;
     resize: none;
-    padding: 5px;
-    font-family: 'PT Sans', sans-serif;;
+    padding: 1rem;
     max-height: 6em;
+    min-height: 3rem;
+    background-color: #1f1f1f;
+    color: #c4c4c4;
+    border: none;
+    font-size: 1rem;
 }
 
 .modal .modal-container .edit-container form div.form-edit-btn {
@@ -349,4 +505,37 @@ div textarea.empty-input {
 .modal .modal-container .edit-container form div.form-edit-btn button.btn-save:hover {
     background-color: rgb(19, 165, 75);
     transition: ease .3s;
+}
+
+.completed {
+    cursor: pointer;
+    appearance: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 3px solid #8d55d1;
+    border-radius: 10px;
+    transition: 0.4s ease;
+    position: relative;
+}
+
+.completed:checked{
+    background-color: #8d55d1;
+}
+
+.completed:before{
+    position: absolute;
+    content: '';
+    background-color: #101015;
+    width: 1rem;
+    height: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+
+.completed:checked:before{
+    opacity: 1;
 }

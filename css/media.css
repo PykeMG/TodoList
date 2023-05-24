@@ -2,6 +2,7 @@
 
     nav.navbar{
         grid-template-columns: repeat(12, 1fr);
+        padding: 1rem 0;
     }
 
     nav.navbar h3 {
@@ -77,23 +78,50 @@
 }
 
 @media(max-width : 860px){
-
+    body{
+        padding: 1rem;
+    }
+    main{
+        padding: 1rem 5em;
+    }
     main form.form-add{
-        width: 90%;
+        width: 100%;
+        display: block;
+        padding: 0;
     }
 
+    main form.form-add .container_input{
+        width: 100%;
+    }
     main form.form-add div.form-add-group{
         display: grid;
     }
+    main form.form-add div.form-add-group input{
+    width: -webkit-fill-available;
+    }
 
     main form.form-add button.btn-add{
-        margin-left: -2em;
-        margin-top: 1em;
+        width: 100%;
+        margin: 0;
+    }
+    main form.form-add  button.btn-add:before{
+        content: 'Add Task';
+    }
+
+    main table thead tr th {
+        padding: 20px;
+    }
+
+    main table tbody tr td {
+        padding: 15px 10px 15px 10px;
     }
 
 }
 
 @media(max-width : 470px){
+    main{
+        padding: 1rem 1rem;
+    }
     main table {
         font-size: .8em;
     }

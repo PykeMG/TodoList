@@ -12,7 +12,7 @@ export default class Components {
 
         const btn = document.createElement('button');
         btn.className = 'close-modal';
-        btn.textContent = 'X';
+        btn.innerHTML = '<i class="fas fa-times-circle"></i>';
         btn.onclick = () => this.removeModal();
 
         header.appendChild(btn);
@@ -31,16 +31,16 @@ export default class Components {
 
         form.innerHTML = `
             <div class="form-edit-group">
-              <label for="title-edit">Title:</label>
+              <label for="title-edit">Title</label>
               <input id="title-edit" value="${title}">
             </div>
             <div class="form-edit-group">
-              <label for="description-edit">Description:</label>
+              <label for="description-edit">Description</label>
               <textarea id="description-edit">${description}</textarea>
             </div>
             <div class="form-edit-group">
-              <label for="completed-edit">Completed:</label>
-              <input type="checkbox" id="completed-edit" ${completed ? 'checked' : ""}>
+              <label for="completed-edit">Completed</label>
+              <input type="checkbox" class="completed" id="completed-edit" ${completed ? 'checked' : ""}>
             </div>
         `
         form.appendChild(btnSave);
